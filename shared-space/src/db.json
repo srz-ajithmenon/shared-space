@@ -1,0 +1,85 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Ajith Menon",
+      "email": "ajithachus20@gmail.com",
+      "password": "ajith1234"
+    },
+    {
+      "name": "Vishnu K",
+      "email": "vishnukrajan08@gmail.com",
+      "password": "vishnu123",
+      "id": 2
+    },
+    {
+      "name": "Deepthi ",
+      "email": "deepthi@gmail.com",
+      "password": "deepthi123",
+      "id": 3
+    }
+  ],
+
+  "seats": [
+    {
+      "id": 1,
+      "seat": 1,
+      "dates": ["07-04-2022"]
+    },
+    {
+      "id": 2,
+      "seat": 2,
+      "dates": [""]
+    },
+    {
+      "id": 3,
+      "seat": 3,
+      "dates": [""]
+    },
+    {
+      "id": 4,
+      "seat": 4,
+      "dates": [""]
+    },
+    {
+      "id": 5,
+      "seat": 5,
+      "dates": [""]
+    },
+    {
+      "id": 6,
+      "seat": 6,
+      "dates": [""]
+    },
+    {
+      "id": 7,
+      "seat": 7,
+      "dates": ["06-04-2022"]
+    },
+    {
+      "id": 8,
+      "seat": 8,
+      "dates": [""]
+    },
+    {
+      "id": 9,
+      "seat": 9,
+      "dates": [""]
+    },
+    {
+      "id": 10,
+      "seat": 10,
+      "dates": [""]
+    },
+    {
+      "id": 11,
+      "seat": 11,
+      "dates": [""]
+    },
+    {
+      "id": 12,
+      "seat": 12,
+      "dates": [""]
+    }
+  ]
+}
