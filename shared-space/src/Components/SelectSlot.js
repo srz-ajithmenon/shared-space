@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react"
 import { connect } from "react-redux";
 import { getSeatInfo } from "../redux/seat/seatAction"
 import {Link} from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 
 import '../style/design.css';
 
@@ -9,10 +10,12 @@ import '../style/design.css';
 function SelectSlot (props) {
 
     const [toggle, setToggle] = useState(false)
-    const {seat, dates } = props.seat;
+    const {id, seat, dates } = props.seat;
     const leng = props.seat.length
 
-    console.log("just.....",leng)
+    const usedates=useLocation()
+    const {usedate} =usedates.state
+    console.log("just.....",usedate)
   
     useEffect(() => {
 
@@ -34,7 +37,7 @@ function SelectSlot (props) {
             <div class="parent">
                 {props.seat.map(function(item,idx){
                     return(
-                        <div><button onClick={toggles} className= {'toggleon '+ (toggle ? 'toggleoff':'')}>{item.seat}</button></div>
+                        <div><button onClick={toggles} className= {(toggle ? 'toggleon':'toggleoff')}>{item.seat}</button></div>
                     )
                 })}
             </div> 

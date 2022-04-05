@@ -1,5 +1,5 @@
 .parent {
-    -webkit-column-count: 3; 
+    /* -webkit-column-count: 4;  */
     column-count: 4;
 }
 
@@ -10,5 +10,7 @@
 }
 
 .toggleoff {
-    background-color:darkslategray;
+    background-color:darkgreen;
+    height: 50px;
+    width: 50px;
 }

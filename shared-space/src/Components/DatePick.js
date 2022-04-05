@@ -42,7 +42,7 @@ function DatePick () {
             getDaysArray(new Date(startDate),new Date(endDate))
             }
             
-            <button ><Link to='/selectslot'>ok</Link></button>
+            <button ><Link to='/selectslot' state={{usedate:daylist}}>ok</Link></button>
 
             
         </div>
