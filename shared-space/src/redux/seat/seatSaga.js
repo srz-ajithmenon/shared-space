@@ -14,7 +14,17 @@ function* getSeatSaga() {
     yield put({type: 'GET_SEAT_INFO_SUCCESS', seatInfo: response.data})
 }
 
+function* updSeatSaga (action) {
+    try{
+        const udata = action.payload;
+        const res = yield call(axios.put,"http://localhost:8000/seats/"+udata.id,udata);
+        yield put({type:'GET_SEAT_INFO'});
+      }
+      catch (e) { console.log('error',e) }
+}
+
 
 export function* watchSeatContainer(){
     yield takeEvery('GET_SEAT_INFO', getSeatSaga)
+    yield takeEvery('UPD_SEAT_INFO', updSeatSaga)
 }
