@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { getSeatInfo, updSeatInfo } from "../redux/seat/seatAction"
 import {Link} from 'react-router-dom'
 import { useLocation } from 'react-router-dom'
+import {updBookInfo} from "../redux/booked/bookAction"
 
 import '../style/design.css';
 
@@ -17,6 +18,8 @@ function SelectSlot (props) {
 
     const usedates=useLocation()
     const {usedate} =usedates.state
+
+    const userid = 1;
     
     console.log("toggle......",toggle)  
     // console.log("array......",arr)
@@ -25,7 +28,7 @@ function SelectSlot (props) {
     //     console.log("this........",toggle)
     // },2000);
   
-    useEffect(() => {
+      useEffect(() => {
         props.getSeatInfo()   
       },[]);
 
@@ -58,11 +61,16 @@ function SelectSlot (props) {
             props.updSeatInfo(useats)
         });
 
-        // usedate.forEach(element => {
-        //     var sdate = usedate.concat(props.seat[element].dates)
-        //     let useats = {id : element+1 , seat : props.seat[element].seat, dates : sdate}
-        //     //props.updSeatInfo(useats)
-        // });
+        usedate.forEach(element => {
+            var result = {};
+            selseats.forEach((key, i) => result[key+1] = userid);
+            console.log("booked...", result)
+            
+
+            var ubooked = {dates : element, seats : result}
+            // console.log("booked...", ubooked)
+            // props.updBookInfo(ubooked)
+        });
 
 
       }
@@ -76,7 +84,7 @@ function SelectSlot (props) {
 
             <div class="parent">
                 {props.seat.map(function(item,idx){
-                    console.log(".........",item.dates)
+                    // console.log(".........",item.dates)
                     return(compare(item.dates,usedate) ? 
                     <div>
                         <button id={idx} disabled className="togglenot">{item.seat}</button>
@@ -104,10 +112,11 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         getSeatInfo: () => dispatch(getSeatInfo()),
-        updSeatInfo: (udata)=>dispatch(updSeatInfo(udata))
+        updSeatInfo: (udata)=>dispatch(updSeatInfo(udata)),
+        
+        updBookInfo:(bdata)=>dispatch(updBookInfo(bdata))
     }
 }
-
 
 
 export default connect (mapStateToProps,mapDispatchToProps)(SelectSlot)

@@ -3,3 +3,10 @@ export const getBookInfo = () => {
       type: 'GET_BOOK_INFO',
     }
 }
+
+export const updBookInfo = (book) => {
+  return{
+      type: 'UPD_BOOK_INFO',
+      payload: book,
+  }
+}
