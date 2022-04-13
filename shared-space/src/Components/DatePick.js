@@ -14,7 +14,7 @@ function DatePick () {
     var getDaysArray = function(start, end) {
         var arr=[];
         for(var dt=new Date(start); dt<=end; dt.setDate(dt.getDate()+1)){
-            arr.push(new Date(dt));
+            arr.push(new Date(dt.getTime() + (5*60+30)*60000));
         }
         // return arr;
         // setDayList(daylist=>[...daylist,arr])
@@ -25,19 +25,23 @@ function DatePick () {
 
     return(
         <div>
-            <DatePicker 
-                selected={startDate} 
-                onChange={date => setStartDate(date)} 
-                dateFormat = 'dd/MM/yyyy'
-            />
-
-            <DatePicker 
-                selected={endDate} 
-                onChange={date => setEndDate(date)} 
-                dateFormat = 'dd/MM/yyyy'
-                minDate={startDate}
-            />
-                                  
+            <div>
+                {/* Start Date : */}
+                <DatePicker 
+                    selected={startDate} 
+                    onChange={date => setStartDate(date)} 
+                    dateFormat = 'dd/MM/yyyy'
+                />
+            </div>
+            <div>
+            {/* End Date : */}
+                <DatePicker 
+                    selected={endDate} 
+                    onChange={date => setEndDate(date)} 
+                    dateFormat = 'dd/MM/yyyy'
+                    minDate={startDate}
+                />
+            </div>                          
             { 
             getDaysArray(new Date(startDate),new Date(endDate))
             }
