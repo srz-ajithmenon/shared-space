@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 
 import {Provider} from 'react-redux'
@@ -7,8 +6,11 @@ import { Route, Link, Routes } from 'react-router-dom'
 import { BrowserRouter } from 'react-router-dom';
 
 import Login from './Components/Login'
+import Home from './Components/Home'
+import Drawers from './Components/Drawers'
 import Signup from './Components/Signup'
 import SelectSlot from './Components/SelectSlot'
+import SelectedSlot from './Components/SelectedSlot'
 import DatePick from './Components/DatePick';
 
 function App() {
@@ -19,11 +21,14 @@ function App() {
           <header className="App-header">
             
             <div>
+              <Drawers />
               <Routes>
                 <Route path = "/" element={ <Login /> } />
+                <Route path = "/home" element={ <Home /> } />
                 <Route path = "/signup" element={ <Signup /> } />
-                <Route path = "/home" element={ <DatePick /> } />
+                <Route path = "/book" element={ <DatePick /> } />
                 <Route path = "/selectslot" element={ <SelectSlot /> } />
+                <Route path = "/booked" element={ <SelectedSlot /> } />
               </Routes>
             </div>
             

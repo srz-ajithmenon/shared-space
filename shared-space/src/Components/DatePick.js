@@ -25,6 +25,7 @@ function DatePick () {
 
     return(
         <div>
+            Pick From and to date for booking
             <div>
                 {/* Start Date : */}
                 <DatePicker 

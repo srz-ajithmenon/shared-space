@@ -2,10 +2,10 @@ import React, {useEffect} from "react";
 import { connect } from "react-redux";
 import { getBookInfo } from "../redux/booked/bookAction"
 import {Link} from 'react-router-dom'
-import '../designs/display.css'
+import '../style/design.css'
 
 
-function DisplayContainer (props) {
+function SelectedSlot (props) {
 
     const {id,seat,dates, name,email } = props.book;
     const leng = props.book.length
@@ -23,25 +23,16 @@ function DisplayContainer (props) {
         <div>
 
             <table>
-                <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>SEATS</th>
-                        <th>DATE</th>
-                        <th>Name</th>
-                        <th>E-mail Id</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
+               
 
                 {props.book.map(function(item,idx){
                     return(
                         <tbody>
                             <td>{item.id}</td>
-                            <td>{item.seat}</td>
+                            {/* <td>{item.seat}</td>
                             <td>{item.dates}</td>
                             <td>{item.name}</td>
-                            <td>{item.email}</td>
+                            <td>{item.email}</td> */}
 
                         </tbody>
                     )
@@ -65,4 +56,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect (mapStateToProps,mapDispatchToProps)(DisplayContainer)
+export default connect (mapStateToProps,mapDispatchToProps)(SelectedSlot)
